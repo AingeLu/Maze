@@ -36,12 +36,16 @@ namespace UIFramework
         }
 
         public static readonly UIType Start = new UIType("Prefab/View/Start/StartView");
+        public static readonly UIType Login = new UIType("Prefab/View/Login/LoginView");
+        public static readonly UIType Lobby = new UIType("Prefab/View/Lobby/LobbyView");
 
-        public static readonly UIType Loading = new UIType("Prefab/View/Loading/LoadingView");
 
         public static readonly UIType MainMenu = new UIType("Prefab/View/MainMenuView");
         public static readonly UIType OptionMenu = new UIType("Prefab/View/OptionMenuView");
         public static readonly UIType NextMenu = new UIType("Prefab/View/NextMenuView");
         public static readonly UIType HighScore = new UIType("Prefab/View/HighScoreView");
+
+
+        public static readonly UIType Loading = new UIType("Prefab/View/Loading/LoadingView");
     }
 }

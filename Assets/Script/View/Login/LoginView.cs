@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UIFramework;
 
-public class StartContext : BaseContext
+public class LoginContext : BaseContext
 {
-    public StartContext()
-        : base(UIType.Start)
+    public LoginContext()
+        : base(UIType.Login)
     {
 
     }
 }
 
-public class StartView : AnimateView
+public class LoginView : AnimateView
 {
-
-    private Coroutine m_Coroutine = null;
+    public GameObject m_EnterGame;
 
 	// Use this for initialization
 	void Start ()
     {
-		
+        UIEventTriggerListener.Get(m_EnterGame).onClick = OnClickEnterGame;
 	}
 	
 	// Update is called once per frame
@@ -32,19 +31,11 @@ public class StartView : AnimateView
     public override void OnEnter(BaseContext context)
     {
         base.OnEnter(context);
-
-        m_Coroutine = StartCoroutine(CoroutineEnumerator());
     }
 
     public override void OnExit(BaseContext context)
     {
         base.OnExit(context);
-
-        if (m_Coroutine != null)
-        {
-            StopCoroutine(m_Coroutine);
-            m_Coroutine = null;
-        }
     }
 
     public override void OnPause(BaseContext context)
@@ -57,10 +48,8 @@ public class StartView : AnimateView
         _animator.SetTrigger("OnEnter");
     }
 
-    private IEnumerator CoroutineEnumerator()
+    public void OnClickEnterGame(GameObject go)
     {
-        yield return new WaitForSeconds(2f);
-
-        GameSceneManager.Instance.ChangeScene(SceneType.LOGIN, SceneNameDef.SceneLogin);
+        GameSceneManager.Instance.ChangeScene(SceneType.LOBBY, SceneNameDef.SceneLobby);
     }
 }

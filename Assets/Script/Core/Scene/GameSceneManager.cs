@@ -84,7 +84,7 @@ public class GameSceneManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator LoadSceneAsync(SceneType toSceneType, string toSceneName, bool additive)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         if (additive)
         {
@@ -140,8 +140,10 @@ public class GameSceneManager : MonoBehaviour
                 Singleton<ContextManager>.Instance.Push(new StartContext());
                 break;
             case SceneType.LOGIN:
+                Singleton<ContextManager>.Instance.Push(new LoginContext());
                 break;
             case SceneType.LOBBY:
+                Singleton<ContextManager>.Instance.Push(new LobbyContext());
                 break;
             case SceneType.LOADING:
                 break;
