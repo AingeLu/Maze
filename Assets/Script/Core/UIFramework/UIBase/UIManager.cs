@@ -1,14 +1,20 @@
-﻿using UnityEngine;
+﻿/*******************************************************************
+** 版  权:    (C) 卢松 2018 - All Rights Reserved
+** 创建人: Simple.Lu
+** 日  期: 2018-11-15 16:09
+** 版  本: 1.0
+** 描  述: 
+** 应  用: Manage View's Create And Destory
+
+**************************** 修改记录 *******************************
+** 修改人:
+** 日  期:
+** 描  述:
+********************************************************************/
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-/*
- *	
- *  Manage View's Create And Destory
- *
- *	by Xuanyi
- *
- */
 
 namespace UIFramework
 {
@@ -55,6 +61,18 @@ namespace UIFramework
 
             GameObject.Destroy(_UIDict[uiType]);
             _UIDict.Remove(uiType);
+        }
+
+        public void Clear()
+        {
+            foreach (KeyValuePair<UIType, GameObject> data in _UIDict)
+            {
+                if (_UIDict[data.Key] != null)
+                {
+                    GameObject.Destroy(_UIDict[data.Key]);
+                }
+            }
+            _UIDict.Clear();
         }
 	}
 }
