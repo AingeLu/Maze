@@ -9,6 +9,10 @@ public class Main : MonoBehaviour
     {
         //全局对象
         DontDestroyOnLoad(gameObject);
+
+        //启动PureMVC程序，执行StartUP()方法
+        AppFacade facade = AppFacade.Instance as AppFacade;
+        facade.Startup(this);
     }
 
 	// Use this for initialization

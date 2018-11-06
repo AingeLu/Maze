@@ -52,4 +52,9 @@ public class LoginView : AnimateView
     {
         GameSceneManager.Instance.ChangeScene(SceneType.LOBBY, SceneNameDef.SceneLobby);
     }
+
+    public void receiveMessage(object obj)
+    {
+    
+    }
 }

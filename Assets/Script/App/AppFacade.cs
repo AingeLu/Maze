@@ -1,33 +1,55 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PureMVC.Interfaces;
 using PureMVC.Patterns.Facade;
 
+//Facade模式的单例
 public class AppFacade : Facade
 {
-    private static AppFacade _instance;
-    public static AppFacade getInstance
+    //实例化函数，保证单例模式(Singleton)运行该函数
+    public new static IFacade Instance
     {
         get
         {
-            if (_instance == null)
+            if(instance == null)
             {
-                _instance = new AppFacade();
+                Debug.Log("ApplicationFacade");
+                instance = new AppFacade();
             }
-            return _instance;
+            return instance;
         }
     }
 
-    protected override void InitializeController()
+    //启动PureMVC的入口函数
+    public void Startup(Main main)
     {
-        base.InitializeController();
-        //RegisterCommand(EventsEnum.STARTUP, typeof(StartupCommand));
-        //RegisterCommand(NotifyConst.S_LOGIN, typeof(LoginCommand));
+        Debug.Log("Startup() to SendNotification.");
+        SendNotification(EventsEnum.STARTUP, main);
     }
 
-    public void startup()
+    //该类的构造器
+    protected AppFacade()
     {
-        SendNotification(EventsEnum.STARTUP);
+
+    }
+
+    //设置静态
+    static AppFacade()
+    {
+
+    }
+    
+    //初始化控制器函数
+    protected override void InitializeController()
+    {
+        Debug.Log("InitializeController()");
+        base.InitializeController();
+
+        RegisterCommand(EventsEnum.STARTUP, () => new StartupCommand());
+        //RegisterCommand(EventsEnum.STARTUP, typeof(StartupCommand));
+        //RegisterCommand(EventsEnum.DELETE_USER, typeof(DeleteUserCommand));
+        //RegisterCommand(NotifyConst.S_LOGIN, typeof(LoginCommand));
     }
 }
