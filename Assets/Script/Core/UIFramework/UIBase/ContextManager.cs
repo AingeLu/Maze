@@ -24,7 +24,7 @@ namespace UIFramework
 
         private ContextManager()
         {
-            Push(new LogoContext());
+            Push(new StartContext());
         }
 
         public void Push(BaseContext nextContext)

@@ -35,7 +35,7 @@ namespace UIFramework
             return string.Format("path : {0} name : {1}", Path, Name);
         }
 
-        public static readonly UIType Logo = new UIType("Prefab/View/Logo/LogoView");
+        public static readonly UIType Start = new UIType("Prefab/View/Start/StartView");
 
         public static readonly UIType Loading = new UIType("Prefab/View/Loading/LoadingView");
 

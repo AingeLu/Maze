@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UIFramework;
 
-public class LogoContext : BaseContext
+public class StartContext : BaseContext
 {
-    public LogoContext()
-        : base(UIType.Logo)
+    public StartContext()
+        : base(UIType.Start)
     {
 
     }
 }
 
-public class LogoView : AnimateView
+public class StartView : AnimateView
 {
 
     private Coroutine m_Coroutine = null;

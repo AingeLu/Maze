@@ -56,9 +56,6 @@ public class GameSceneManager : MonoBehaviour
 
     public void ChangeScene(SceneType toSceneType, string toSceneName, bool additive = false)
     {
-        Singleton<ContextManager>.Instance.Clear();
-        Singleton<UIManager>.Instance.Clear();
-
         LoadLoadingScene(toSceneName);
 
         m_SceneCoroutine = StartCoroutine(LoadSceneAsync(toSceneType, toSceneName, additive));
@@ -104,6 +101,8 @@ public class GameSceneManager : MonoBehaviour
 
         m_CurSceneType = toSceneType;
         m_CurSceneName = toSceneName;
+
+        yield return LoadSceneEnd(toSceneType, toSceneName);
     }
 
     /// <summary>
@@ -120,5 +119,36 @@ public class GameSceneManager : MonoBehaviour
     private IEnumerator LoadLoginScene(SceneType toSceneType, string toSceneName, bool additive)
     {
         yield return 0f;
+    }
+
+    /// <summary>
+    /// 加载场景完成
+    /// </summary>
+    /// <param name="toSceneType"></param>
+    /// <param name="toSceneName"></param>
+    /// <returns></returns>
+    private IEnumerator LoadSceneEnd(SceneType toSceneType, string toSceneName)
+    {
+        Singleton<ContextManager>.Instance.Clear();
+        Singleton<UIManager>.Instance.Clear();
+
+        switch (toSceneType)
+        {
+            case SceneType.None:
+                break;
+            case SceneType.START:
+                Singleton<ContextManager>.Instance.Push(new StartContext());
+                break;
+            case SceneType.LOGIN:
+                break;
+            case SceneType.LOBBY:
+                break;
+            case SceneType.LOADING:
+                break;
+            default:
+                break;
+        }
+
+        yield return 1;
     }
 }

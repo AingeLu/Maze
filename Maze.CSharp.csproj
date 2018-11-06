@@ -109,12 +109,12 @@
     <Compile Include="Assets\Script\Core\PureMVC\Patterns\Proxy\Proxy.cs" />
     <Compile Include="Assets\Script\Core\Scene\GameSceneDefine.cs" />
     <Compile Include="Assets\Script\Core\Scene\GameSceneManager.cs" />
-    <Compile Include="Assets\Script\Core\SimpleJSON\SimpleJSON.cs" />
     <Compile Include="Assets\Script\Core\UIFramework\Extensions\DictionaryExtension.cs" />
     <Compile Include="Assets\Script\Core\UIFramework\Extensions\TransformExtension.cs" />
     <Compile Include="Assets\Script\Core\UIFramework\GameRoot.cs" />
     <Compile Include="Assets\Script\Core\UIFramework\Localization\Localization.cs" />
     <Compile Include="Assets\Script\Core\UIFramework\Localization\LocalizedText.cs" />
+    <Compile Include="Assets\Script\Core\UIFramework\SimpleJSON\SimpleJSON.cs" />
     <Compile Include="Assets\Script\Core\UIFramework\Singleton.cs" />
     <Compile Include="Assets\Script\Core\UIFramework\UIBase\AnimateView.cs" />
     <Compile Include="Assets\Script\Core\UIFramework\UIBase\BaseContext.cs" />
@@ -137,7 +137,7 @@
     <Compile Include="Assets\Script\View\Lobby\MainMenuView.cs" />
     <Compile Include="Assets\Script\View\Lobby\NextMenuView.cs" />
     <Compile Include="Assets\Script\View\Lobby\OptionMenuView.cs" />
-    <Compile Include="Assets\Script\View\Logo\LogoView.cs" />
+    <Compile Include="Assets\Script\View\Start\StartView.cs" />
     <Compile Include="Assets\Script\_Test\test_fixed_joint.cs" />
     <Compile Include="Assets\Script\_Test\test_hinge_joint.cs" />
   </ItemGroup>

@@ -25,7 +25,8 @@ namespace UIFramework
         /// </summary>
         public static Dictionary<TKey, TValue> TryAdd<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, TValue value)
         {
-            if (dict.ContainsKey(key) == false) dict.Add(key, value);
+            if (dict.ContainsKey(key) == false)
+                dict.Add(key, value);
             return dict;
         }
         /// <summary>
