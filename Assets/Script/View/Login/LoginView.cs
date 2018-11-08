@@ -50,11 +50,11 @@ public class LoginView : AnimateView
 
     public void OnClickEnterGame(GameObject go)
     {
-        GameSceneManager.Instance.ChangeScene(SceneType.LOBBY, SceneNameDef.SceneLobby);
+        AppFacade.Instance.SendNotification(NotifyConst.S_LOGIN);
     }
 
     public void receiveMessage(object obj)
     {
-    
+        GameSceneManager.Instance.ChangeScene(SceneType.LOBBY, SceneNameDef.SceneLobby);
     }
 }
