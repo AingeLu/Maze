@@ -42,6 +42,7 @@ public class AppFacade : Facade
     }
     
     //初始化控制器函数
+    //创建Commond，并注册。
     protected override void InitializeController()
     {
         Debug.Log("InitializeController()");

@@ -6,7 +6,7 @@ public class LoginCommand : SimpleCommand
 {
     public override void Execute(PureMVC.Interfaces.INotification notification)
     {
-        Debug.Log("LoginCommand");
+        Debug.Log("LoginCommand.Execute()");
 
         object obj = notification.Body;
         

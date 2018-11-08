@@ -16,6 +16,16 @@ public class LoginView : AnimateView
 {
     public GameObject m_EnterGame;
 
+    void Awake()
+    {
+        AppFacade.Instance.RegisterMediator(new LoginViewMediator(this));
+    }
+
+    void OnDestroy()
+    {
+        AppFacade.Instance.RemoveMediator(LoginViewMediator.NAME);
+    }
+
 	// Use this for initialization
 	void Start ()
     {

@@ -8,6 +8,8 @@ public class ModelPreCommand : SimpleCommand
 {
     public override void Execute(PureMVC.Interfaces.INotification notification)
     {
+        Debug.Log("ModelPreCommand.Execute()");
+        Facade.RegisterProxy(new UserProxy());
         Facade.RegisterProxy(new LoginProxy());
     }
 }
