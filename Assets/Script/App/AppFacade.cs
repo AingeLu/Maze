@@ -48,8 +48,6 @@ public class AppFacade : Facade
         base.InitializeController();
 
         RegisterCommand(EventsEnum.STARTUP, () => new StartupCommand());
-        //RegisterCommand(EventsEnum.STARTUP, typeof(StartupCommand));
-        //RegisterCommand(EventsEnum.DELETE_USER, typeof(DeleteUserCommand));
-        //RegisterCommand(NotifyConst.S_LOGIN, typeof(LoginCommand));
+        RegisterCommand(NotifyConst.S_LOGIN, () => new LoginCommand());
     }
 }
