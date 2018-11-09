@@ -1,34 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
-
-/*
- *	
- *  
- *
- *	by Simple.Lu
- *
- */
 
 namespace UIFramework
 {
-    public class HighScoreContext : BaseContext
+    public class OptionMenuContext :BaseContext
     {
-        public HighScoreContext()
-            : base(UIType.HighScore)
+        public OptionMenuContext() : base(UIType.OptionMenu)
         {
 
         }
     }
 
-    public class HighScoreView : AnimateView
+    public class OptionMenuView : AnimateView
     {
-        public GridScroller _gridScroller;
 
         public override void OnEnter(BaseContext context)
         {
             base.OnEnter(context);
-            _gridScroller.Init(OnChange, 100, new Vector2(0.12f, 1f));
         }
 
         public override void OnExit(BaseContext context)
@@ -46,14 +35,15 @@ namespace UIFramework
             base.OnResume(context);
         }
 
-        public void BackCallBack()
+		public void BackCallBack()
         {
             Singleton<ContextManager>.Instance.Pop();
         }
 
-        public void OnChange(Transform trans, int index)
+        public void NextCallBack()
         {
-            trans.GetComponent<HighScoreItem>().Init(index);
+            Singleton<ContextManager>.Instance.Push(new NextMenuContext());
         }
     }
 }
+
